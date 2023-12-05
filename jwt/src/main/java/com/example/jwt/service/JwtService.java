@@ -51,7 +51,6 @@ public class JwtService {
                 .build();
         try {
             var result = parser.parseClaimsJws(token);
-
             result.getBody().entrySet().forEach(value -> {
                 log.info("key : {}, value : {}", value.getKey(), value.getValue());
             });
