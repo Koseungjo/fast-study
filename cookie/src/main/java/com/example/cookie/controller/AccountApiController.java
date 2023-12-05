@@ -20,6 +20,6 @@ public class AccountApiController {
     @PostMapping("/login")
     public String login(@RequestBody LoginRequest loginRequest, HttpServletResponse httpServletResponse,
                         HttpSession httpSession){
-        return accountService.login(loginRequest,httpServletResponse);
+        return accountService.login(loginRequest, httpServletResponse);
     }
 }
