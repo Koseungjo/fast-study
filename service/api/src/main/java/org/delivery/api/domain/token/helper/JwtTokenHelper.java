@@ -23,13 +23,13 @@ import java.util.Map;
 @Component
 public class JwtTokenHelper implements TokenHelperIfs {
 
-    @Value("${toekn.secret.key}")
+    @Value("${token.secret.key}")
     private String secretKey;
 
-    @Value("${toekn.access-token.plus-hour}")
+    @Value("${token.access-token.plus-hour}")
     private Long accessTokenPlusHour;
 
-    @Value("${toekn.represh-token.plus-hour}")
+    @Value("${token.refresh-token.plus-hour}")
     private Long refreshTokenPlusHour;
 
 
@@ -78,7 +78,7 @@ public class JwtTokenHelper implements TokenHelperIfs {
 
         try {
             var result = parser.parseClaimsJws(token);
-            return new HashMap<String, Object>(result.getBody());
+            return new HashMap<>(result.getBody());
         } catch (Exception e) {
             if (e instanceof SignatureException){
                 // 토큰이 유요하지 않을때
